@@ -82,7 +82,9 @@ button {
         Thank you for being my forever miffy goldie matcha loving valentine 💚
     </div>
 </div>
-
+<img id="supriseImage" src="us.jpg"
+    style="display:none; width:300px; border-radius:20px; margin-top:20px;">
+    
 <!-- Hidden YouTube Embed -->
 
 <audio id="loveSong" src="song.mp3"></audio>
@@ -118,6 +120,11 @@ function moveButton() {
 
 function celebrate() {
     document.getElementById("finalMessage").style.display = "block";
+    const img = document.getElementById("surpriseImage");
+    img.sytle.display = "block";
+    setTimeout(() => {
+        img.style.opacity = "1";
+    }, 100);
     startFloatingAnimals();
     document.getElementById("loveSong").play();
 }
@@ -148,6 +155,7 @@ function playMusic() {
 
 </body>
 </html>
+
 
 
 
