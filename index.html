@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mission Proposal</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 50px 20px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.section {
+    margin: 60px 0;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s ease;
+}
+
+.yes-btn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.no-btn {
+    background-color: #999;
+    color: white;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+#finalMessage {
+    font-size: 2em;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔒 Confidential Mission Briefing</h1>
+    <p>This document is intended for one extraordinary human only.</p>
+
+    <div class="section">
+        <h2>Mission Overview</h2>
+        <p>
+            Over the past year, I have conducted extensive research.<br>
+            Results indicate 100% increase in happiness,<br>
+            200% increase in laughter,<br>
+            and statistically significant improvement in my life.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Key Findings</h2>
+        <p>
+            ✔ Best smile in the observable universe<br>
+            ✔ Elite-level cuddler<br>
+            ✔ Makes even ordinary days feel like magic<br>
+            ✔ Permanent favorite person
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Final Approval Required</h2>
+        <p>Will you be my Valentine?</p>
+
+        <button class="yes-btn" onclick="sayYes()">YES ❤️</button>
+        <button class="no-btn" onmouseover="moveButton()">No</button>
+
+        <div id="finalMessage" class="hidden">
+            🥰 Mission Accepted. Best decision ever.
+        </div>
+    </div>
+</div>
+
+<script>
+function sayYes() {
+    document.getElementById("finalMessage").classList.remove("hidden");
+}
+
+function moveButton() {
+    const button = document.querySelector(".no-btn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    button.style.position = "absolute";
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
