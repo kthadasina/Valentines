@@ -2,90 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mission Proposal</title>
+<title>Very Important Bunny Question 🐰💚</title>
 <style>
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
-    color: #333;
+    background: linear-gradient(to bottom right, #d4f8d4, #b8f2e6);
+    color: #2f4f2f;
     text-align: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .container {
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
 h1 {
     font-size: 3em;
 }
 
-.section {
-    margin: 60px 0;
+p {
+    font-size: 1.2em;
 }
 
 button {
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    margin: 10px;
+    margin: 15px;
     transition: 0.3s ease;
 }
 
 .yes-btn {
-    background-color: #ff4d6d;
+    background-color: #7ed6a7;
     color: white;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(126, 214, 167, 0.7);
 }
 
 .no-btn {
-    background-color: #999;
+    background-color: #5c8d89;
     color: white;
     position: relative;
-}
-
-.hidden {
-    display: none;
 }
 
 #finalMessage {
     font-size: 2em;
     margin-top: 30px;
+    display: none;
+}
+
+.bunny {
+    position: fixed;
+    font-size: 24px;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
 }
 </style>
 </head>
 <body>
 
-    <div class="section">
-        <h2>Final Approval Required</h2>
-        <p>Will you be my Valentine?</p>
+<div class="container">
+    <h1>Hi Cutie 🐰💚</h1>
+    <p>Okay so… imagine a tiny bunny delivering this message to you.</p>
 
-        <button class="yes-btn" onclick="sayYes()">YES ❤️</button>
-        <button class="no-btn" onmouseover="moveButton()">No</button>
+    <h2>Will you be my Valentine? 🌿</h2>
 
-        <div id="finalMessage" class="hidden">
-            🥰 Mission Accepted. Best decision ever.
-        </div>
+    <button class="yes-btn" onclick="celebrate()">YES 🐰💚</button>
+    <button class="no-btn" id="noBtn" onmouseover="moveButton()">No 😗</button>
+
+    <div id="finalMessage">
+        🐰💚 The bunny is very happy. And so am I.
     </div>
 </div>
 
 <script>
-function sayYes() {
-    document.getElementById("finalMessage").classList.remove("hidden");
-}
+let noCount = 0;
 
 function moveButton() {
-    const button = document.querySelector(".no-btn");
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
+    const button = document.getElementById("noBtn");
+    noCount++;
+
+    if (noCount >= 3) {
+        button.innerHTML = "Okay fine YES 😅";
+        button.onclick = celebrate;
+        button.onmouseover = null;
+        return;
+    }
+
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 80);
     button.style.position = "absolute";
     button.style.left = x + "px";
     button.style.top = y + "px";
+}
+
+function celebrate() {
+    document.getElementById("finalMessage").style.display = "block";
+    startBunnies();
+}
+
+function startBunnies() {
+    setInterval(() => {
+        const bunny = document.createElement("div");
+        bunny.classList.add("bunny");
+        bunny.innerHTML = "🐰";
+        bunny.style.left = Math.random() * window.innerWidth + "px";
+        bunny.style.bottom = "0px";
+        document.body.appendChild(bunny);
+
+        setTimeout(() => {
+            bunny.remove();
+        }, 3000);
+    }, 200);
 }
 </script>
 
 </body>
 </html>
-
