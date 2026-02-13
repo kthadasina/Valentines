@@ -84,6 +84,8 @@ button {
 </div>
 
 <!-- Hidden YouTube Embed -->
+
+<audio id="loveSong" src="song.mp3"></audio>
 <div id="musicPlayer">
     <iframe id="ytplayer" width="0" height="0"
         src=""
@@ -116,7 +118,7 @@ function moveButton() {
 function celebrate() {
     document.getElementById("finalMessage").style.display = "block";
     startFloatingAnimals();
-    playMusic();
+    document.getElementById("loveSong").play();
 }
 
 function startFloatingAnimals() {
@@ -145,6 +147,7 @@ function playMusic() {
 
 </body>
 </html>
+
 
 
 
