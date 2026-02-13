@@ -84,7 +84,7 @@ button {
 </div>
 
 <img id="surpriseImage" src="us.jpg"
-    style="opacity:0; width:600px; border-radius:50px; margin-top:50px; transition: opacity 1.5s;">
+    style="opacity:0; width:500px; border-radius:50px; margin-top:50px; transition: opacity 1.5s;">
     
 <!-- Hidden YouTube Embed -->
 
@@ -121,8 +121,8 @@ function moveButton() {
 
 function celebrate() {
     document.getElementById("finalMessage").style.display = "block";
-    const img = document.getElementById("surpriseImage");
     <center>
+    const img = document.getElementById("surpriseImage");
     img.style.display = "block";
     setTimeout(() => {
         img.style.opacity = "1";
@@ -149,14 +149,11 @@ function startFloatingAnimals() {
     }, 250);
 }
 
-function playMusic() {
-    const player = document.getElementById("ytplayer");
-    player.src = "https://www.youtube.com/watch?v=SusylI-b7yo&list=RDSusylI-b7yo&start_radio=1?autoplay=1&mute=1";
-}
 </script>
 
 </body>
 </html>
+
 
 
 
