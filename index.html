@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Very Important Bunny Question 🐰💚</title>
+<title>Very Important Question 🐰🐶💚</title>
 <style>
 body {
     margin: 0;
@@ -19,10 +19,6 @@ body {
 
 h1 {
     font-size: 3em;
-}
-
-p {
-    font-size: 1.2em;
 }
 
 button {
@@ -54,32 +50,47 @@ button {
     display: none;
 }
 
-.bunny {
+.floating {
     position: fixed;
-    font-size: 24px;
-    animation: float 3s linear infinite;
+    font-size: 28px;
+    animation: float 4s linear infinite;
 }
 
 @keyframes float {
     0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-800px); opacity: 0; }
+    100% { transform: translateY(-900px); opacity: 0; }
+}
+
+#musicPlayer {
+    display: none;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Hi Cutie 🐰💚</h1>
-    <p>Okay so… imagine a tiny bunny delivering this message to you.</p>
+    <h1>Hi Cutie 🐰🐶💚</h1>
+    <p>Okay… serious question delivered by a bunny AND a golden retriever.</p>
 
     <h2>Will you be my Valentine? 🌿</h2>
 
-    <button class="yes-btn" onclick="celebrate()">YES 🐰💚</button>
-    <button class="no-btn" id="noBtn" onmouseover="moveButton()">No 😗</button>
+    <button class="yes-btn" onclick="celebrate()">YES 🐰🐶💚</button>
+    <button class="no-btn" id="noBtn" onmouseover="moveButton()">No 😌</button>
 
     <div id="finalMessage">
-        🐰💚 The bunny is very happy. And so am I.
+        🐰🐶💚 The bunny is happy.  
+        The golden retriever is wagging its tail.  
+        And I’m the happiest.
     </div>
+</div>
+
+<!-- Hidden YouTube Embed -->
+<div id="musicPlayer">
+    <iframe id="ytplayer" width="0" height="0"
+        src=""
+        frameborder="0"
+        allow="autoplay">
+    </iframe>
 </div>
 
 <script>
@@ -105,22 +116,31 @@ function moveButton() {
 
 function celebrate() {
     document.getElementById("finalMessage").style.display = "block";
-    startBunnies();
+    startFloatingAnimals();
+    playMusic();
 }
 
-function startBunnies() {
+function startFloatingAnimals() {
     setInterval(() => {
-        const bunny = document.createElement("div");
-        bunny.classList.add("bunny");
-        bunny.innerHTML = "🐰";
-        bunny.style.left = Math.random() * window.innerWidth + "px";
-        bunny.style.bottom = "0px";
-        document.body.appendChild(bunny);
+        const emoji = document.createElement("div");
+        emoji.classList.add("floating");
+
+        // Randomly choose bunny or dog
+        emoji.innerHTML = Math.random() > 0.5 ? "🐰" : "🐶";
+
+        emoji.style.left = Math.random() * window.innerWidth + "px";
+        emoji.style.bottom = "0px";
+        document.body.appendChild(emoji);
 
         setTimeout(() => {
-            bunny.remove();
-        }, 3000);
-    }, 200);
+            emoji.remove();
+        }, 4000);
+    }, 250);
+}
+
+function playMusic() {
+    const player = document.getElementById("ytplayer");
+    player.src = "https://www.youtube.com/embed/8t2W8F1nNqE?autoplay=1";
 }
 </script>
 
