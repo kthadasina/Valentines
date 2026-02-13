@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Very Important Question 🐰🐶💚</title>
+
 <style>
 body {
     margin: 0;
@@ -10,15 +11,11 @@ body {
     background: linear-gradient(to bottom right, #d4f8d4, #b8f2e6);
     color: #2f4f2f;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .container {
     padding: 60px 20px;
-}
-
-h1 {
-    font-size: 3em;
 }
 
 button {
@@ -28,14 +25,11 @@ button {
     border-radius: 30px;
     cursor: pointer;
     margin: 15px;
-    transition: 0.3s ease;
 }
 
 .yes-btn {
     background-color: #7ed6a7;
     color: white;
-    font-weight: bold;
-    box-shadow: 0 0 15px rgba(126, 214, 167, 0.7);
 }
 
 .no-btn {
@@ -50,6 +44,13 @@ button {
     display: none;
 }
 
+#surpriseImage {
+    display: none;
+    width: 300px;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
 .floating {
     position: fixed;
     font-size: 28px;
@@ -60,43 +61,27 @@ button {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(-900px); opacity: 0; }
 }
-
-#musicPlayer {
-    display: none;
-}
 </style>
 </head>
+
 <body>
 
 <div class="container">
     <h1>Hi booba 🐰🐶💚</h1>
-    <p>I have a question for you.</p>
-
+    <p>I have a question for you</p>
     <h2>Will you be my Valentine? 🌿</h2>
 
     <button class="yes-btn" onclick="celebrate()">YES 🐰🐶💚</button>
     <button class="no-btn" id="noBtn" onmouseover="moveButton()">No 😌</button>
 
     <div id="finalMessage">
-        🐰🐶💚 
-        Thank you for being my forever miffy goldie matcha loving valentine 💚
+        🐰🐶💚 Thank you for being my forever miffy goldie matcha mountain loving valentine 💚.
     </div>
-</div>
 
-<img id="surpriseImage" src="us.jpg" class="center"
-    style="opacity:0; width:500px; border-radius:50px; margin-top:50px; transition: opacity 1.5s;">
-    
-<!-- Hidden YouTube Embed -->
+    <img id="surpriseImage" src="us.jpg">
+</div>
 
 <audio id="loveSong" src="song.mp3"></audio>
-<!-- <div id="musicPlayer">
-    <iframe id="ytplayer" width="0" height="0"
-        src=""
-        frameborder="0"
-        allow="autoplay">
-    </iframe>
-</div>
-    -->
 
 <script>
 let noCount = 0;
@@ -105,7 +90,7 @@ function moveButton() {
     const button = document.getElementById("noBtn");
     noCount++;
 
-    if (noCount >= 5) {
+    if (noCount >= 3) {
         button.innerHTML = "Okay fine YES 😅";
         button.onclick = celebrate;
         button.onmouseover = null;
@@ -121,23 +106,16 @@ function moveButton() {
 
 function celebrate() {
     document.getElementById("finalMessage").style.display = "block";
-    const img = document.getElementById("surpriseImage");
-    img.style.display = "block";
-    setTimeout(() => {
-        img.style.opacity = "1";
-    }, 100);
-    startFloatingAnimals();
+    document.getElementById("surpriseImage").style.display = "block";
     document.getElementById("loveSong").play();
+    startFloatingAnimals();
 }
 
 function startFloatingAnimals() {
     setInterval(() => {
         const emoji = document.createElement("div");
         emoji.classList.add("floating");
-
-        // Randomly choose bunny or dog
         emoji.innerHTML = Math.random() > 0.5 ? "🐰" : "🐶";
-
         emoji.style.left = Math.random() * window.innerWidth + "px";
         emoji.style.bottom = "0px";
         document.body.appendChild(emoji);
@@ -147,20 +125,8 @@ function startFloatingAnimals() {
         }, 4000);
     }, 250);
 }
-
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
